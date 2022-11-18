@@ -33,7 +33,7 @@ var today = dayjs();
 
   // showUSD function to show USD rate from API
   function showUsd(){
-  fetch("http://api.nbp.pl/api/exchangerates/rates/c/usd/2016-04-04/?format=json")
+  fetch("https://api.nbp.pl/api/exchangerates/rates/c/usd/2016-04-04/?format=json")
     .then(response => response.json())
     .then((data) => {
       USD.textContent = data.rates[0].ask;
