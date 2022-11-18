@@ -6,8 +6,10 @@ $('#current-day').text(today.format('[Date: ] MMMM D, YYYY'));
 // Variable
 const adviceText = document.querySelector(".tip-day");
 
+
 // Run the showQuote function when the page is loaded
 window.onload = showQuote()
+
 
 // showQuote function to show random quote from API
 function showQuote() {
@@ -17,7 +19,9 @@ function showQuote() {
     //.then((data) => data.slip)
     .then((data) => {
       console.log(data.slip);
+
       adviceText.textContent = data.slip.advice;
+
     })
     .catch((error) => {
       // Update this to MODAL!
