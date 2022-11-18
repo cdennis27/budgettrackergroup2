@@ -8,6 +8,7 @@ var today = dayjs();
 
   // Run the showQuote function when the page is loaded
   window.onload = showQuote;
+  console.log();
 
   // showQuote function to show random quote from API
   function showQuote(){
@@ -16,6 +17,7 @@ var today = dayjs();
     .then((data) => data.slip)
     .then((data) => {
       console.log(data.slip);
+        adviceNum.textContent = data.id;
         adviceText.textContent = data.advice;
     })
     .catch((error) => {
