@@ -29,7 +29,7 @@ function showQuote() {
     });
 }
 
-// NBP WEB API  
+// NBP WEB API  (CURRENCY)
 //Variable
 const USD = document.querySelector("#currency-output");
 
