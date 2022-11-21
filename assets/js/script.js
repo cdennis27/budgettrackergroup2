@@ -4,6 +4,7 @@ const adviceText = document.querySelector(".tip-day");
 var i = -1;
 var x = -1;
 var today = dayjs();
+// Variables for exchange box below
 var exchangeRate = "usd";
 var baseRate, optionRate, finalRate = 1;
 const USD = document.querySelector("#currency-output");
@@ -16,6 +17,12 @@ var checkBoxEur = document.getElementById("eur");
 var checkBoxGbp = document.getElementById("gbp");
 var amountCurrency = document.getElementById("amountcurr").value;
 var amt = 0;
+// Variables for input box below
+const amountEl = document.querySelector("#amount");
+const categoryEl = document.querySelector("#category");
+
+
+
 
 // DAYJS
 $('#current-day').text(today.format('[Date: ] MMMM D, YYYY'));
@@ -53,6 +60,20 @@ function showQuote() {
       alert(`Error ${error}`);
     });
 }
+
+// Below functions to input box and table of income and expenses
+
+function submit() {
+  console.log("Submitted!");
+  var amount = amountEl.value;
+  var category = categoryEl.value;
+  if (amount > 0) {
+    console.log("amount:" + amount + "and Category:" + category);
+  } else {
+    alert("You forgot amount!");
+  }
+}
+
 
 // below functions to show currency exchange rates from BNP API
 
@@ -185,8 +206,8 @@ function showExchangeCad() {
       }
     });
   console.log(CAD.textContent);
-  yesterday = dayjs().add(-1, 'day');
-  yesterday = (yesterday.format('YYYY-MM-DD'));
+  //yesterday = dayjs().add(-1, 'day');
+  //yesterday = (yesterday.format('YYYY-MM-DD'));
   console.log(exchangeRate);
 }
 
@@ -231,6 +252,7 @@ async function convert(event) {
     return;
   }
   console.log("amountCurrency:" + amt);
+  amountEl.value = CAD.textContent;
   exH2.textContent = (" " + exchangeRate);
   exH.textContent = (" " + exchangeRate);
 }
