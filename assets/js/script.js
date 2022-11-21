@@ -130,7 +130,7 @@ function showUsd() {
       //debugger;
       optionRate = data.rates[0].ask;
       console.log("baseRate:" + baseRate);
-      finalRate = (baseRate / optionRate);
+      finalRate = (optionRate / baseRate);
       console.log("finalRate:" + finalRate);
       USD.textContent = finalRate.toFixed(4);
     })
@@ -170,8 +170,6 @@ function showExchange() {
   exH2.textContent = (" " + exchangeRate);
   console.log(exchangeRate);
 }
-
-
 
 function showExchangeCad() {
   cadExchangeLink = ("https://api.nbp.pl/api/exchangerates/rates/c/cad/" + yesterday + "/?format=json");
