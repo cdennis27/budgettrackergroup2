@@ -65,7 +65,7 @@
               <option value="expOthers">Expense - Other Bills</option>
             </select>
           </div>
-          <button type="submit">Submit</button>
+          <button type="submit" id="submit">Submit</button>
         </form>
       </div>
     </section>
@@ -76,22 +76,25 @@
         <h2 id="currency-title">Currency rates</h2>
         <form>
           <div>
-            <label for="amount-currency">Amount</label>
-            <input type="number" name="amount-currency" id="amount-currency" min="0" max="999999999" step="0.01" required>
+            <label for="amount-currency">Amount in CAD $</label>
+            <input type="number" name="amount-currency" id="amountcurr" min="0" max="999999999" step="0.01" required>
           </div>
-          <div required>
+          <div id="currency" required>
             Currency:
-            <input type="radio" name="currency" id="usd" required>
+            <input type="radio" name="currency" id="usd" value="usd" checked="checked" onclick="getRate()">
             <label for="usd">USD</label>
-            <input type="radio" name="currency" id="eur">
+            <input type="radio" name="currency" id="eur" value="eur" onclick="getRate()">
             <label for="eur">EUR</label>
-            <input type="radio" name="currency" id="gbp">
+            <input type="radio" name="currency" id="gbp" value="gbp" onclick="getRate()">
             <label for="gbp">GBP</label>
           </div>
-          <button type="submit">Convert</button>
-        </form>
-        <p class="currency-output">CAD$=<span id="currency-output"></span></p>
-        </form>
+          </form>
+          <button id="convert" onclick="convert(event)">Convert</button>
+        
+        <p class="currency-output">Exchange rate is: <span id="currency-output"></span ><span style="text-transform: uppercase;" id="exchangeRate2"></span></p>
+        <p class="currency-output">Your amount exchanged is: <span id="cad-output"></span><span style="text-transform: uppercase;" id="exchangeRate"></span></p>
+      
+
       </div>
     </section>
   </main>
