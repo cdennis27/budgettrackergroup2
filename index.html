@@ -50,7 +50,7 @@
           <div>
             <label for="category">Category</label>
             <select name="category" id="category" required>
-              <option value="payCheck">Income - Pay Check</option>
+              <option value="payCheck" select="selected">Income - Pay Check</option>
               <option value="bonus">Income - Bonus</option>
               <option value="incOthers">Income - Others</option>
               <option value="food">Expense - Eat Out, Food</option>
@@ -65,8 +65,9 @@
               <option value="expOthers">Expense - Other Bills</option>
             </select>
           </div>
-          <button type="submit" id="submit">Submit</button>
-        </form>
+          </form>
+          <button id="submit" onclick="submit()">Submit</button>
+        
       </div>
     </section>
 
@@ -87,7 +88,7 @@
             <label for="eur">EUR</label>
             <input type="radio" name="currency" id="gbp" value="gbp" onclick="getRate()">
             <label for="gbp">GBP</label>
-          </div>
+          </div> 
           </form>
           <button id="convert" onclick="convert(event)">Convert</button>
         
