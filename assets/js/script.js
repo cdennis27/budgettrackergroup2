@@ -231,6 +231,6 @@ async function convert(event) {
     return;
   }
   console.log("amountCurrency:" + amt);
-  exH2.textContent = ("" + exchangeRate);
-  exH.textContent = ("" + exchangeRate);
+  exH2.textContent = (" " + exchangeRate);
+  exH.textContent = (" " + exchangeRate);
 }
