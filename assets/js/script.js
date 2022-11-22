@@ -1,5 +1,5 @@
 var today = dayjs();
-  $('#current-day').text(today.format('[Date: ] MMMM D, YYYY'));
+  $('#current-day').text(today.format('MMMM D, YYYY'));
 
 // ADVICESLIP API
   // Variable
