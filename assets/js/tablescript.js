@@ -1,6 +1,22 @@
 const table2 = document.querySelector("#table")
 total = document.getElementById("balance")
 submitform = document.getElementById("form");
+payCheck = document.querySelector("paycheck");
+bonus = document.querySelector("bonus");
+incOthers = document.querySelector("incOthers");
+var today = dayjs();
+var currentDay = (today.format('DD-MMM-YYYY'));
+groceries = document.querySelector("groceries");
+entertainment = document.querySelector("entertainment");
+rent = document.querySelector("rent");
+fuel = document.querySelector("fuel");
+transport = document.querySelector("transport");
+utilities = document.querySelector("utilities");
+shopping = document.querySelector("shopping");
+education = document.querySelector("education");
+expOthers = document.querySelector("expOthers");
+
+
 var budget = []
 if(localStorage.getItem("budget")){
 	budget = JSON.parse(localStorage.getItem("budget"))
@@ -33,9 +49,10 @@ function createTable() {
 		//button.textContent = "X";
 		//button.setAttribute("data-index", i);
 
-		row.insertCell(0).innerHTML = budget[i].category;
-		row.insertCell(1).innerHTML = budget[i].amount;
-		row.insertCell(2).innerHTML = button[i];
+		row.insertCell(0).innerHTML = (budget[i].category);
+		row.insertCell(1).innerHTML = currentDay;
+		row.insertCell(2).innerHTML = budget[i].amount;
+		row.insertCell(3).innerHTML = button[i];
 		}
 		
 		var header = table.createTHead();
@@ -63,7 +80,29 @@ function createTable() {
 
 	createTable()
 
-		/*
+	/*	
+	////////////
+
+	// select if the key is income or expense
+	// create an income array with category as Income - pay check, Income Bonus, Income others
+	// create an expenes array with other categories
+	// have amount values of income array => add them
+	// have amount values of expense array => subtract them
+
+	if ((budget.category === payCheck) || (budget.category === bonus) || (budget.category === incOthers)) {
+		var income= [];
+		income.push(budget);
+		console.log(Object.value(income));
+	}
+	else{
+		var expense = [];
+		expense.push(budget);
+		console.log(Object.values(expense));
+	}
+
+	//////////////
+
+	/*
 		var income = [(Income - Pay Check),  ]
 
 		if(budget.category === (Income - Pay Check), || (Income - Bonus), || (Income - Others) ) {
