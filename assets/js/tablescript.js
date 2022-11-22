@@ -1,4 +1,4 @@
-
+const table2 = document.querySelector("#table")
 total = document.getElementById("balance")
 submitform = document.getElementById("form");
 var budget = []
@@ -13,7 +13,6 @@ function expense(event){
 	category = document.getElementById("category").value;
 	var expenseObj = {
 		amount, category
-	
 	} 
 	budget.push(expenseObj)
 	localStorage.setItem("budget", JSON.stringify(budget));
@@ -30,12 +29,13 @@ function createTable() {
 	for(var i= 0; i < budget.length; i++) {
 		var row = table.insertRow(i);
 
-		var button = document.createElement("button");
-		button.textContent = "Cancel X";
+		var button = document.createElement("button").value="X";
+		//button.textContent = "X";
+		//button.setAttribute("data-index", i);
 
 		row.insertCell(0).innerHTML = budget[i].category;
 		row.insertCell(1).innerHTML = budget[i].amount;
-		row.insertCell(2).innerHTML = button;
+		row.insertCell(2).innerHTML = button[i];
 		}
 		
 		var header = table.createTHead();
@@ -44,9 +44,24 @@ function createTable() {
 			headerRow.insertCell(i).innerHTML = header[i];
 		}
 
-		document.body.append(table);
+		table.deleteRow(0);
+
+		//table.addEventListener("click", function(event) {
+		//	var element =  event.target;
+
+		//	if (element.matches("button") === true){
+		//		var row = element.parentNode.parentNode;
+		//		row.parentNode.removechild(row)
+		//	}
+		 //})
+
+		//document.body.append(table);
+		//To delete header row
+		$( table2 ).append(table)
 
 	}
+
+	createTable()
 
 		/*
 		var income = [(Income - Pay Check),  ]

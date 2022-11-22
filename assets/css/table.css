@@ -1,0 +1,12 @@
+.category {
+    width: 500 px;
+    text-align: center;
+}
+
+.amount {
+    width: 100 px;
+}
+
+.button {
+    background-color: red;    
+}
