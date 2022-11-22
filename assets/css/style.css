@@ -1,3 +1,110 @@
-*{
-    background-color: rgb(201, 252, 249);
+:root {
+    --white: #ffffff;
+    --black: #000000;
+
+    --darkOrange: #612f23;
+
+    --lightGreen: #e1f39a;
+    --darkGreen: #6F7B47;
+    --lightGray: #D9D9D9;
+    --lightGray2: #aaaaaa;
+    --darkGray: #272727;
+
+    --lightBlue: #E3ECEE;
+    --greenLight: #CCD5AE;
+    --blue: #3C8CBA;
+    --orange: #DB8A8C;
+
+    /* --lightBlue: #E3ECEE;
+    --green: #CCD5AE;
+    --blue: #0590DF;
+    --orange: #E76F51; */
+
+}
+
+* {
+    font-style: 'Roboto', sans-serif;
+}
+
+.rowSection {
+    background-color: var(--lightBlue);
+}
+
+.inputSection {
+    background-color: var(--white);
+}
+
+.logo {
+    width: 150px;
+    height: 100px;
+}
+
+.formIncomeExpense {
+    align-items: center;
+}
+
+.tip-day {
+    font-size: 20px;
+    font-weight: 400;
+}
+
+.currency-output {
+    color: var(--orange);
+    font-weight: 500;
+    background-color: var(--lightBlue);
+}
+
+.divider {
+    border-top: 5px solid var(--lightBlue);
+    border-radius: 2px;
+}
+
+.balance {
+    font-size: 32px;
+    font-weight: 700;
+    color: var(--greenLight);
+    text-shadow: -1px 0 var(--darkGreen), 0 1px var(--darkGreen), 1px 0 var(--darkGreen), 0 -1px var(--darkGreen);
+}
+
+.cardMain {
+    border-radius: 5px;
+    background-color: var(--greenLight);
+}
+
+.iconMain {
+    display: table-cell;
+    vertical-align: middle;
+    text-align: center;
+    border-radius: 10px;
+    width: 50px;
+    height: 50px;
+    background-color: var(--lightGreen);
+}
+
+.closeBtn {
+    display: table-cell;
+    vertical-align: middle;
+    text-align: right;
+    width: 50px;
+    height: 50px;
+}
+
+.iconIncome {
+    color: var(--darkGreen);
+}
+
+.iconClose {
+    color: var(--lightGray2);
+}
+
+.iconClose:hover {
+    color: var(--darkGray)
+}
+
+.footer {
+    background-color: var(--lightGray);
+}
+
+.footer p {
+    font-size: 18px;
 }
