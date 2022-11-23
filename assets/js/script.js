@@ -21,9 +21,6 @@ var amt = 0;
 const amountEl = document.querySelector("#amount");
 const categoryEl = document.querySelector("#category");
 
-
-
-
 // DAYJS
 $('#current-day').text(today.format('[Date: ] MMMM D, YYYY'));
 var currentDay = (today.format('YYYY-MM-DD'));
@@ -42,7 +39,8 @@ window.onload = dateExchange();
 window.onload = initializeExchange();
 
 
-// showQuote function to show random quote from API
+// Modal on page load
+
 
 // ADVICESLIP API
 function showQuote() {
@@ -56,8 +54,8 @@ function showQuote() {
 
     })
     .catch((error) => {
-      // Update this to MODAL!//ELAINE
-      alert(`Error ${error}`);
+      // alert(`Unable to display tip`);
+      $('#exampleModal1').foundation('open');
     });
 }
 
