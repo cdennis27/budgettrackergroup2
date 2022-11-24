@@ -1,92 +1,172 @@
 const table2 = document.querySelector("#table")
 var table = document.createElement("table");
-total = document.getElementById("balance")
-submitform = document.getElementById("form");
-payCheck = document.querySelector("paycheck");
-bonus = document.querySelector("bonus");
-incOthers = document.querySelector("incOthers");
+//total = document.getElementById("balance")
+const submitform = document.getElementById("form");
+const payCheck = document.querySelector("paycheck");
+const bonus = document.querySelector("bonus");
+const incOthers = document.querySelector("incOthers");
+const balanceFinal = document.querySelector("balance-amount");
+let balance = 0;
 var today = dayjs();
 var currentDay = (today.format('DD-MMM-YYYY'));
-groceries = document.querySelector("groceries");
-entertainment = document.querySelector("entertainment");
-rent = document.querySelector("rent");
-fuel = document.querySelector("fuel");
-transport = document.querySelector("transport");
-utilities = document.querySelector("utilities");
-shopping = document.querySelector("shopping");
-education = document.querySelector("education");
-expOthers = document.querySelector("expOthers");
-
-
+const groceries = document.querySelector("groceries");
+const entertainment = document.querySelector("entertainment");
+const rent = document.querySelector("rent");
+const fuel = document.querySelector("fuel");
+const transport = document.querySelector("transport");
+const utilities = document.querySelector("utilities");
+const shopping = document.querySelector("shopping");
+const education = document.querySelector("education");
+const expOthers = document.querySelector("expOthers");
 var budget = []
+
 if (localStorage.getItem("budget")) {
     budget = JSON.parse(localStorage.getItem("budget"))
-
+    var dateT = currentDay;
 
 }
 function expense(event) {
     event.preventDefault()
+    
     amount = document.getElementById("amount").value;
+    dateT = currentDay;
     category = document.getElementById("category").value;
+    if (amount != Number) {
+        $('#exampleModal3').foundation('open');
+        return;
+    }
     var expenseObj = {
-        amount, category
+        amount, dateT, category
     }
     budget.push(expenseObj)
     localStorage.setItem("budget", JSON.stringify(budget));
-    //$(table2).append(table);
     console.log(table);
     table.innerHTML = "";
     $(table2).append(table);
+    balance.innerHTML = 0;
+    $('#balance-amount').text(balance);
     console.log(table);
     createTable();
     console.log(table);
 }
+
 submitform.addEventListener('submit', expense);
 
-
 function createTable() {
-    var headers = ["Category", "Amount"];
-    //var table = document.createElement("table");
+
+    var headers = ["Category", "Date", "Amount"];
+    balance = 0;
 
     for (var i = 0; i < budget.length; i++) {
         var row = table.insertRow(i);
+        row.setAttribute("data-index", i);
+        var indexi = ('"' + i + '"');
+        console.log(indexi);
+        var button3 = document.createElement("button");
+        button3.textContent = "X";
+        var currentAmount = (budget[i].amount);
 
-        var button = document.createElement("button").value = "X";
-        //button.textContent = "X";
-        //button.setAttribute("data-index", i);
+        if (budget[i].category == "payCheck") {
+            row.insertCell(0).innerHTML = ('<img class="icon" src="./assets/images/paycheckicon.png" alt="icon pay check">')
+            balance = Number(balance) + Number(currentAmount);
+        }
+        if (budget[i].category == "bonus") {
+            row.insertCell(0).innerHTML = ('<img class="icon" src="./assets/images/paycheckicon.png" alt="icon pay check">')
+            balance = Number(balance) + Number(currentAmount);
+        }
+        if (budget[i].category == "incOthers") {
+            row.insertCell(0).innerHTML = ('<img class="icon" src="./assets/images/paycheckicon.png" alt="icon pay check">')
+            balance = Number(balance) + Number(currentAmount);
+        }
+        if (budget[i].category == "food") {
+            row.insertCell(0).innerHTML = ('<img class="icon" src="./assets/images/paycheckicon.png" alt="icon pay check">')
+            balance = Number(balance) - Number(currentAmount);
+        }
+        if (budget[i].category == "groceries") {
+            row.insertCell(0).innerHTML = ('<img class="icon" src="./assets/images/paycheckicon.png" alt="icon pay check">')
+            balance = Number(balance) - Number(currentAmount);
+        }
+        if (budget[i].category == "entertainment") {
+            row.insertCell(0).innerHTML = ('<img class="icon" src="./assets/images/paycheckicon.png" alt="icon pay check">')
+            balance = Number(balance) - Number(currentAmount);
+        }
+        if (budget[i].category == "rent") {
+            row.insertCell(0).innerHTML = ('<img class="icon" src="./assets/images/paycheckicon.png" alt="icon pay check">')
+            balance = Number(balance) - Number(currentAmount);
+        }
+        if (budget[i].category == "fuel") {
+            row.insertCell(0).innerHTML = ('<img class="icon" src="./assets/images/paycheckicon.png" alt="icon pay check">')
+            balance = Number(balance) - Number(currentAmount);
+        }
+        if (budget[i].category == "transport") {
+            row.insertCell(0).innerHTML = ('<img class="icon" src="./assets/images/paycheckicon.png" alt="icon pay check">')
+            balance = Number(balance) - Number(currentAmount);
+        }
+        if (budget[i].category == "utilities") {
+            row.insertCell(0).innerHTML = ('<img class="icon" src="./assets/images/paycheckicon.png" alt="icon pay check">')
+            balance = Number(balance) - Number(currentAmount);
+        }
+        if (budget[i].category == "shopping") {
+            row.insertCell(0).innerHTML = ('<img class="icon" src="./assets/images/paycheckicon.png" alt="icon pay check">')
+            balance = Number(balance) - Number(currentAmount);
+        }
+        if (budget[i].category == "education") {
+            row.insertCell(0).innerHTML = ('<img class="icon" src="./assets/images/paycheckicon.png" alt="icon pay check">')
+            balance = Number(balance) - Number(currentAmount);
+        }
+        if (budget[i].category == "expOthers") {
+            row.insertCell(0).innerHTML = ('<img class="icon" src="./assets/images/paycheckicon.png" alt="icon pay check">')
+            balance = Number(balance) - Number(currentAmount);
+        }
 
-        row.insertCell(0).innerHTML = (budget[i].category);
-        row.insertCell(1).innerHTML = currentDay;
-        row.insertCell(2).innerHTML = budget[i].amount;
-        row.insertCell(3).innerHTML = button;
+        console.log("amount=" + (budget[i].amount));
+        console.log("balance=" + balance);
+        row.insertCell(1).innerHTML = (budget[i].category);
+        row.insertCell(2).innerHTML = (budget[i].dateT);
+        row.insertCell(3).innerHTML = ("Amount: CAD$");
+        row.insertCell(4).innerHTML = (budget[i].amount);
+        row.insertCell(5).innerHTML = ('<button class="deleteBtn" id="button4" type="button" onclick="deleteThis(event)">'
+            + '<span> X </span></button>');
     }
 
     var header = table.createTHead();
     var headerRow = header.insertRow(0);
     for (var i = 0; i < headers.length; i++) {
-        headerRow.insertCell(i).innerHTML = header[i];
+        headerRow.insertCell(i).textContent = header[i];
     }
 
     table.deleteRow(0);
     console.log(table);
-    //table.addEventListener("click", function(event) {
-    //	var element =  event.target;
-
-    //	if (element.matches("button") === true){
-    //		var row = element.parentNode.parentNode;
-    //		row.parentNode.removechild(row)
-    //	}
-    //})
-
-    //document.body.append(table);
-    //To delete header row
     $(table2).append(table);
+    $('#balance-amount').text(balance);
 
 }
 
-//const button1 = document.getElementById("button1");
-//   $(button1).on("click", renderTable());
+function deleteThis(event) {
 
+    var btnClicked = $(event.currentTarget).parent('td').parent('tr').attr('data-index');
+    console.log(btnClicked);
+    var element = event.target;
+
+    if (element.matches("span") === true) {
+
+        budget.splice(btnClicked, 1);
+        console.log("Hello World" + budget);
+        //
+        localStorage.setItem("budget", JSON.stringify(budget));
+        //$(table2).append(table);
+        console.log(table);
+        table.innerHTML = "";
+        $(table2).append(table);
+        balance = 0;
+        $('#balance-amount').text(balance);
+        console.log(table);
+        createTable();
+        console.log(table);
+    }
+    //const button1 = document.getElementById("button1");
+    //   $(button1).on("click", renderTable());
+}
 
 createTable();
 

@@ -26,6 +26,11 @@
     font-style: 'Roboto', sans-serif;
 }
 
+.icon {
+    height: 3rem;
+    min-width: 20px;
+}
+
 .rowSection {
     background-color: var(--lightBlue);
 }
