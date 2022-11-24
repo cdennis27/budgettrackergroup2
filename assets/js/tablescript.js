@@ -31,7 +31,7 @@ function expense(event) {
     amount = document.getElementById("amount").value;
     dateT = currentDay;
     category = document.getElementById("category").value;
-    if (amount != Number) {
+    if (amount == "") {
         $('#exampleModal3').foundation('open');
         return;
     }
@@ -137,6 +137,7 @@ function createTable() {
 
     table.deleteRow(0);
     console.log(table);
+    balance = (balance.toFixed(2));
     $(table2).append(table);
     $('#balance-amount').text(balance);
 

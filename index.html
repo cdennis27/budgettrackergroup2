@@ -110,7 +110,7 @@
         <h2 id="currency-title">Currency rates</h2>
         <form>
           <div>
-            <label for="amount-currency">Amount in <span style="text-transform: uppercase;" id="exchangeRate"> USD $</span> $</label>
+            <label for="amount-currency">Amount in <span style="text-transform: uppercase;" id="exchangeRate"> </span>$</label>
             <input type="number" name="amount-currency" id="amountcurr" min="0" max="999999999" step="0.01" required>
           </div>
           <div id="currency" required>
@@ -125,7 +125,7 @@
           </form>
           <button id="convert" onclick="convert(event)">Convert</button>
         
-        <p class="currency-output">Exchange rate is: <span id="currency-output"></span ><span style="text-transform: uppercase;" id="exchangeRate2"></span>$.</p>
+        <p class="currency-output">Exchange rate is 1 CAD$ to: <span id="currency-output"></span > <span style="text-transform: uppercase;" id="exchangeRate2"></span>$.</p>
         <p class="currency-output">Your amount exchanged is: <span id="cad-output"></span> in CAD$.</span></p>
       
 

@@ -90,6 +90,7 @@ async function initializeExchange() {
     //USD.textContent = "Choose your currency above.";
     USD.textContent = (finalRate.toFixed(4) + exchangeRate);
     console.log("Rate is in:" + exchangeRate);
+    exH.textContent = exchangeRate;
     return;
   }
   console.log("Rate is in:" + exchangeRate);
@@ -100,24 +101,24 @@ function getRate() {
   if (checkBoxUsd.checked == true) {
     exchangeRate = "usd";
     showExchange();
-    CAD.textContent = "Please convert."
+    CAD.textContent = "Please click convert!"
 
   } else if (checkBoxEur.checked == true) {
     exchangeRate = "eur";
     showExchange();
-    CAD.textContent = "Please convert."
+    CAD.textContent = "Please click convert!"
 
   } else if (checkBoxGbp.checked == true) {
     exchangeRate = "gbp";
     showExchange();
-    CAD.textContent = "Please convert."
+    CAD.textContent = "Please click convert!"
 
   }
   else {
     return;
   }
   exH2.textContent = (" " + exchangeRate);
-  exH.textContent = "";
+  exH.textContent = exchangeRate;
   console.log(exchangeRate);
 }
 
@@ -209,7 +210,7 @@ function showCad() {
     .then((data) => {
       console.log(data);
       //CAD.textContent = data.rates[0].ask;
-      CAD.textContent = "Please convert!";
+      CAD.textContent = "Please click convert!";
       exH2.textContent = "";
       exH.textContent = "";
       baseRate = data.rates[0].ask;
