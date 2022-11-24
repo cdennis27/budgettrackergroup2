@@ -35,6 +35,19 @@
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
+      <div class="small reveal" id="exampleModal2" data-reveal>
+        <p class="lead">Please add amount to convert!</p>
+        <button class="close-button" data-close aria-label="Close modal" type="button">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="small reveal" id="exampleModal3" data-reveal>
+        <p class="lead">Please add an amount to your Budget item!</p>
+        <button class="close-button" data-close aria-label="Close modal" type="button">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+
 
     </div>
   </header>
@@ -45,7 +58,7 @@
       <!-- Day JS -->
       <p id="current-day" class="current-day"></p>
       <!-- Total Balance -->
-      <p id="balance" class="balance">Balance CAD$:<span id="balance-amount"></span></p>
+      <p id="balance" class="balance">Balance: CAD$ <span id="balance-amount"></span></p>
     </section>
 
     <section>
@@ -61,7 +74,7 @@
         <form id="form">
           <div>
             <label for="amount">Amount</label>
-            <input type="number" name="amount" id="amount" min="0" max="999999999" step="0.01" required>
+            <input type="number" name="amount" id="amount" min="0" max="999999999" step="0.01">
           </div>
           <div>
             <label for="category">Category</label>
@@ -112,8 +125,8 @@
           </form>
           <button id="convert" onclick="convert(event)">Convert</button>
         
-        <p class="currency-output">Exchange rate is: <span id="currency-output"></span ><span style="text-transform: uppercase;" id="exchangeRate2"></span></p>
-        <p class="currency-output">Your amount exchanged is: <span id="cad-output"></span> CAD $</span></p>
+        <p class="currency-output">Exchange rate is: <span id="currency-output"></span ><span style="text-transform: uppercase;" id="exchangeRate2"></span>$.</p>
+        <p class="currency-output">Your amount exchanged is: <span id="cad-output"></span> in CAD$.</span></p>
       
 
       </div>

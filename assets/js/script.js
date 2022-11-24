@@ -60,7 +60,7 @@ function showQuote() {
 }
 
 // Below functions to input box and table of income and expenses
-
+/*
 function submit() {
   console.log("Submitted!");
   var amount = amountEl.value;
@@ -71,31 +71,32 @@ function submit() {
     alert("You forgot amount!");
   }
 }
-
-
+*/
 // below functions to show currency exchange rates from BNP API
 
 var usdExchangeLink = ("https://api.nbp.pl/api/exchangerates/rates/c/" + "usd" + "/" + yesterday + "/?format=json");
 var cadExchangeLink = ("https://api.nbp.pl/api/exchangerates/rates/c/" + "cad" + "/" + yesterday + "/?format=json");
 var exchangeRate = "usd";
 
-function initializeExchange() {
+async function initializeExchange() {
   showExchangeCad();
   if (baseRate != undefined) {
+    await sleep(2000);
     getRate();
   } else {
     showExchangeCad();
-    USD.textContent = "choose your currency above.";
+    await sleep(2000);
+    getRate();
+    //USD.textContent = "Choose your currency above.";
+    USD.textContent = (finalRate.toFixed(4) + exchangeRate);
     console.log("Rate is in:" + exchangeRate);
     return;
   }
   console.log("Rate is in:" + exchangeRate);
 }
 
-
-
 function getRate() {
-  //debugger;
+  
   if (checkBoxUsd.checked == true) {
     exchangeRate = "usd";
     showExchange();
@@ -125,7 +126,6 @@ function showUsd() {
     .then(response => response.json())
     .then((data) => {
       console.log(data);
-      //debugger;
       optionRate = data.rates[0].ask;
       console.log("baseRate:" + baseRate);
       finalRate = (optionRate / baseRate);
@@ -138,7 +138,6 @@ function showExchange() {
   usdExchangeLink = ("https://api.nbp.pl/api/exchangerates/rates/c/" + exchangeRate + "/" + yesterday + "/?format=json");
   console.log(usdExchangeLink);
   console.log("i:" + i);
-  //debugger;
   fetch(usdExchangeLink)
     .then(function (response) {
       console.log(response);
@@ -173,7 +172,6 @@ function showExchangeCad() {
   cadExchangeLink = ("https://api.nbp.pl/api/exchangerates/rates/c/cad/" + yesterday + "/?format=json");
   console.log(cadExchangeLink);
   console.log("x:" + x);
-  //debugger;
   fetch(cadExchangeLink)
     .then(function (response) {
       console.log(response);
@@ -202,8 +200,6 @@ function showExchangeCad() {
       }
     });
   console.log(CAD.textContent);
-  //yesterday = dayjs().add(-1, 'day');
-  //yesterday = (yesterday.format('YYYY-MM-DD'));
   console.log(exchangeRate);
 }
 
@@ -212,7 +208,6 @@ function showCad() {
     .then(response => response.json())
     .then((data) => {
       console.log(data);
-      //debugger;
       //CAD.textContent = data.rates[0].ask;
       CAD.textContent = "Please convert!";
       exH2.textContent = "";
@@ -237,6 +232,7 @@ async function convert(event) {
   console.log("finalRate is:" + finalRate);
   amt = amountCurrency;
   if (finalRate == 1) {
+    $('#exampleModal2').foundation('open');
     CAD.textContent = "Sorry, please try again!";
     return;
   }
@@ -244,6 +240,7 @@ async function convert(event) {
   if (amt > 0) {
     CAD.textContent = (amt * finalRate).toFixed(2);
   } else {
+    $('#exampleModal2').foundation('open');
     CAD.textContent = "Sorry, please try again!";
     return;
   }
