@@ -8,6 +8,11 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
+  <!-- Foundation CSS -->
+  <link rel="stylesheet" href="./assets/css/foundation.css">
+  <link rel="stylesheet" href="./assets/css/app.css">
+  <link rel="stylesheet" href="./assets/css/foundation.min.css">
+  
   <!-- CSS Style -->
   <link rel="stylesheet" type="text/css" href="./assets/css/style.css" />
 </head>
@@ -16,10 +21,20 @@
   <header>
     <div class="header-block">
       <div class="logo"></div>
+      
       <!-- Title -->
       <h1 class="title">BUDGET TRACKER</h1>
+      
       <!-- AdviceSlip API -->
       <div>Tip of the day: <span class="tip-day"></span></div>
+      
+      <!-- Modal -->
+      <div class="small reveal" id="exampleModal1" data-reveal>
+        <p class="lead">Unable to display tip</p>
+        <button class="close-button" data-close aria-label="Close modal" type="button">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
 
     </div>
   </header>
@@ -54,11 +69,11 @@
               <option value="payCheck" select="selected">Income - Pay Check</option>
               <option value="bonus">Income - Bonus</option>
               <option value="incOthers">Income - Others</option>
-              <option value="food">Expense - Eat Out, Food</option>
+              <option value="food">Expense - Eat Out/Food</option>
               <option value="groceries">Expense - Groceries</option>
               <option value="entertainment">Expense - Entertainment</option>
-              <option value="rent">Expense - Rent / Mortgage</option>
-              <option value="fuel">Expense - Eat Out, food</option>
+              <option value="rent">Expense - Rent/Mortgage</option>
+              <option value="fuel">Expense - Fuel</option>
               <option value="transport">Expense - Transport</option>
               <option value="utilities">Expense - Utilities</option>
               <option value="shopping">Expense - Shopping</option>
@@ -118,10 +133,21 @@
 
   <!-- Jquery -->
   <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+  
+  <!-- Foundation JS -->
+  <script src="/assets/js/vendor/jquery.js"></script>
+  <script src="./assets/js/vendor/what-input.js"></script>
+  <script src="./assets/js/vendor/foundation.js"></script>
+  <script src="./assets/js/vendor/foundation.min.js"></script>
+  <script src="./assets/js/vendor/foundation.core.js"></script>
+  <script src="./assets/js/vendor/foundation.reveal.js"></script>
+  <script src="./assets/js/app.js"></script>
+  
   <!-- DayJS -->
   <script src="https://cdn.jsdelivr.net/npm/dayjs@1.11.3/dayjs.min.js"
     integrity="sha256-iu/zLUB+QgISXBLCW/mcDi/rnf4m4uEDO0wauy76x7U=" crossorigin="anonymous"></script>
-  <!-- JS -->
+  
+    <!-- JS -->
   <script src="assets/js/script.js"></script>
   <script src="assets/js/tablescript.js"></script>
 
