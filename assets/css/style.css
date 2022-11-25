@@ -26,31 +26,21 @@
     font-style: 'Roboto', sans-serif;
 }
 
-.icon {
-    height: 3rem;
-    min-width: 20px;
-}
-
-.rowSection {
-    background-color: var(--lightBlue);
-}
-
-.inputSection {
-    background-color: var(--white);
-}
-
 .logo {
     width: 150px;
     height: 100px;
-}
-
-.formIncomeExpense {
-    align-items: center;
+    background-image: url(../images/logo.png);
+    background-size: cover;
 }
 
 .tip-day {
     font-size: 20px;
     font-weight: 400;
+}
+
+.icon {
+    height: 3rem;
+    min-width: 20px;
 }
 
 .currency-output {
@@ -59,21 +49,11 @@
     background-color: var(--lightBlue);
 }
 
-.divider {
-    border-top: 5px solid var(--lightBlue);
-    border-radius: 2px;
-}
-
 .balance {
     font-size: 32px;
     font-weight: 700;
     color: var(--greenLight);
     text-shadow: -1px 0 var(--darkGreen), 0 1px var(--darkGreen), 1px 0 var(--darkGreen), 0 -1px var(--darkGreen);
-}
-
-.cardMain {
-    border-radius: 5px;
-    background-color: var(--greenLight);
 }
 
 .iconMain {
@@ -110,6 +90,24 @@
     background-color: var(--lightGray);
 }
 
-.footer p {
-    font-size: 18px;
+.test {
+    background-color: #DB8A8C;
+}
+
+.test1 {
+    background-color: #8adbc9;
+}
+
+.test2 {
+    background-color: #dbb18a;
+}
+
+@media screen and (max-width: 768px) {
+    /* Use flex-direction to stack the navbar, sidebar, and body */
+
+    /* Make the sidebar stack below the body */
+    .sectionT {
+        order: 2;
+    }
+
 }
