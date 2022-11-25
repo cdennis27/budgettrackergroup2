@@ -4,6 +4,7 @@
 <head>
   <!-- Site Title -->
   <title>Budget Tracker Application</title>
+  <link rel="icon" type="image/png" href="./assets/images/logo.png">
 
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -17,16 +18,27 @@
   <link rel="stylesheet" type="text/css" href="./assets/css/style.css" />
 </head>
 
-<body class="grid-container">
-  <header class="grid-x grid-padding-x test">
+<body>
+
+  <header class="grid-x paddingLeft">
     <div class="grid-x header-block">
-      <div class="logo"></div>
-
-      <!-- Title -->
-      <h3 class="title">BUDGET TRACKER</h3>
-
-      <!-- AdviceSlip API -->
-      <div>Tip of the day: <span class="tip-day"></span></div>
+      <div class="grid-x">
+        <div class="cell shrink">
+          <div class="logo"></div>
+        </div>
+        <div class="cell small-8">
+          <div class="grid-x">
+            <!-- Title -->
+            <div class="cell">
+              <h3 class="title">BUDGET TRACKER</h3>
+            </div>
+            <!-- AdviceSlip API -->
+            <div class="cell">
+              <div>Tip of the day: <span class="tip-day"></span></div>
+            </div>
+          </div>
+        </div>
+      </div>
 
       <!-- Modal -->
       <div class="small reveal" id="exampleModal1" data-reveal>
@@ -35,12 +47,14 @@
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
+
       <div class="small reveal" id="exampleModal2" data-reveal>
         <p class="lead">Please add amount to convert!</p>
         <button class="close-button" data-close aria-label="Close modal" type="button">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
+
       <div class="small reveal" id="exampleModal3" data-reveal>
         <p class="lead">Please add an amount to your Budget item!</p>
         <button class="close-button" data-close aria-label="Close modal" type="button">
@@ -52,13 +66,14 @@
   </header>
 
   <main class="grid-x">
-    <div class="large-8 medium-8 cell test1 sectionT">
+    <div class="large-8 medium-8 cell paddingLeft sectionT">
       <!-- Date and Balance Section -->
       <section class="grid-x grid-padding-x ">
         <!-- Day JS -->
-        <p id="current-day" class="large-6 medium-6 current-day"></p>
+        <p id="current-day" class="large-4 medium-4 current-day text-center"></p>
         <!-- Total Balance -->
-        <p id="balance" class="large-6 medium-6 text-right balance">Balance: CAD$ <span id="balance-amount"></span></p>
+        <p id="balance" class="large-8 medium-8 text-right balance">Balance: CAD$ <span id="balance-amount"></span>
+        </p>
       </section>
 
       <section>
@@ -67,20 +82,20 @@
       </section>
     </div>
 
-    <div class="large-4 medium-4 cell test2">
+    <div class="large-4 medium-4 cell sectionIP">
       <section class="large-12 medium-12 cell sectionTable">
         <!-- Input Section -->
         <div id="card input-block">
 
-          <h2 id="input-title">Input your income or expense:</h2>
+          <h4 id="input-title">Input your income or expense</h4>
           <form id="form">
             <div>
               <label for="amount">Amount</label>
-              <input type="number" name="amount" id="amount" min="0" max="999999999" step="0.01">
+              <input type="number" class="eleBorder" name="amount" id="amount" min="0" max="999999999" step="0.01">
             </div>
             <div>
               <label for="category">Category</label>
-              <select name="category" id="category" required>
+              <select class="eleBorder" name="category" id="category" required>
                 <option value="payCheck" select="selected">Income - Pay Check</option>
                 <option value="bonus">Income - Bonus</option>
                 <option value="incOthers">Income - Others</option>
@@ -97,8 +112,8 @@
               </select>
             </div>
             <div class="table">
-
-              <input type="submit" id="button" value="Generate a table" />
+              <button class="button expanded" type="submit" id="button" value="Generate a table">Generate a
+                table</button>
             </div>
           </form>
           <!-- <button id="submit" onclick="submit()">Submit</button> -->
@@ -106,16 +121,19 @@
         </div>
       </section>
 
+      <hr class="divider">
+
       <section class="large-12 medium-12 cell sectionCC">
         <!-- Currency Section -->
         <div id="card input-currency-block">
-          <h2 id="currency-title">Currency rates</h2>
-          
+          <h4 id="currency-title">Currency rates</h4>
+
           <form>
             <div>
               <label for="amount-currency">Amount in <span style="text-transform: uppercase;" id="exchangeRate">
                 </span>$</label>
-              <input type="number" name="amount-currency" id="amountcurr" min="0" max="999999999" step="0.01" required>
+              <input type="number" class="eleBorder" name="amount-currency" id="amountcurr" min="0" max="999999999"
+                step="0.01" required>
             </div>
             <div id="currency" required>
               Currency:
@@ -127,8 +145,8 @@
               <label for="gbp">GBP</label>
             </div>
           </form>
-          
-          <button id="convert" onclick="convert(event)">Convert</button>
+
+          <button class="button expanded" id="convert" onclick="convert(event)">Convert</button>
 
           <p class="currency-output">Exchange rate is 1 CAD$ to: <span id="currency-output"></span> <span
               style="text-transform: uppercase;" id="exchangeRate2"></span>$.</p>
@@ -141,7 +159,7 @@
   </main>
 
   <!-- Footer -->
-  <footer class="footer">
+  <footer class="footer text-center">
     <h4>All references for API's used should be here</h4>
 
     <!-- AdviceSlip API -->

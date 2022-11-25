@@ -14,12 +14,6 @@
     --greenLight: #CCD5AE;
     --blue: #3C8CBA;
     --orange: #DB8A8C;
-
-    /* --lightBlue: #E3ECEE;
-    --green: #CCD5AE;
-    --blue: #0590DF;
-    --orange: #E76F51; */
-
 }
 
 * {
@@ -38,15 +32,51 @@
     font-weight: 400;
 }
 
+.paddingLeft {
+    padding: 2rem 3rem 2rem 10rem;
+}
+
+.sectionT {
+    background-color: var(--lightBlue);
+}
+
+.sectionIP {
+    padding: 2rem 10rem 2rem 3rem;
+}
+
 .icon {
     height: 3rem;
     min-width: 20px;
 }
 
+.eleBorder {
+    border: 1px solid var(--blue);
+    border-radius: 5px;
+}
+
+.button {
+    border-radius: 5px;
+}
+
+h4{
+    text-align: center;
+}
+
+.divider{
+    margin: 50px 0px;
+    border: 1px solid var(--blue);
+}
+
+.reveal{
+    background-color: var(--lightBlue);
+    border: 3px solid var(--blue);    
+    border-radius: 10px;
+}
+
 .currency-output {
     color: var(--orange);
     font-weight: 500;
-    background-color: var(--lightBlue);
+    text-align: center;
 }
 
 .balance {
@@ -110,4 +140,21 @@
         order: 2;
     }
 
+    .paddingLeft{
+        padding: 3rem;
+    }
+
+    .sectionIP{        
+        padding: 0rem 3rem 3rem 3rem;
+    }
+
+    h4{
+        font-size: 20px;
+        font-weight: 500;
+    }
+
+    .header-block{
+        width: 100%;
+        align-items: center;
+    }
 }
