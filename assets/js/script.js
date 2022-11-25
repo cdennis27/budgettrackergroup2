@@ -38,9 +38,7 @@ window.onload = showQuote()
 window.onload = dateExchange();
 window.onload = initializeExchange();
 
-
 // Modal on page load
-
 
 // ADVICESLIP API
 function showQuote() {
@@ -59,19 +57,6 @@ function showQuote() {
     });
 }
 
-// Below functions to input box and table of income and expenses
-/*
-function submit() {
-  console.log("Submitted!");
-  var amount = amountEl.value;
-  var category = categoryEl.value;
-  if (amount > 0) {
-    console.log("amount:" + amount + "and Category:" + category);
-  } else {
-    alert("You forgot amount!");
-  }
-}
-*/
 // below functions to show currency exchange rates from BNP API
 
 var usdExchangeLink = ("https://api.nbp.pl/api/exchangerates/rates/c/" + "usd" + "/" + yesterday + "/?format=json");
@@ -229,9 +214,9 @@ async function convert(event) {
   getRate();
   var amountCurrency = document.getElementById("amountcurr").value;
   await sleep(2000);
-  //debugger;
   console.log("finalRate is:" + finalRate);
   amt = amountCurrency;
+  
   if (finalRate == 1) {
     $('#exampleModal2').foundation('open');
     CAD.textContent = "Sorry, please try again!";
@@ -245,6 +230,7 @@ async function convert(event) {
     CAD.textContent = "Sorry, please try again!";
     return;
   }
+  
   console.log("amountCurrency:" + amt);
   amountEl.value = CAD.textContent;
   exH2.textContent = (" " + exchangeRate);
