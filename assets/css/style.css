@@ -2,7 +2,8 @@
     --white: #ffffff;
     --black: #000000;
 
-    --darkOrange: #612f23;
+    --darkOrange: #D86700;
+    --lightOrange: #ffd8b4;
 
     --lightGreen: #e1f39a;
     --darkGreen: #6F7B47;
@@ -25,9 +26,26 @@
     height: 100px;
     background-image: url(../images/logo.png);
     background-size: cover;
+    animation: float 10s ease-in-out infinite;
 }
 
-.tip-day {
+@keyframes float {
+	0% {
+		transform: translatey(0px);
+	}
+	50% {
+		transform: translatey(-20px);
+	}
+	100% {
+		transform: translatey(0px);
+	}
+}
+
+.title {
+    font-weight: 700;
+}
+
+.tip {
     font-size: 20px;
     font-weight: 400;
 }
@@ -47,6 +65,17 @@
 .icon {
     height: 3rem;
     min-width: 20px;
+    background-color: var(--lightBlue);
+    border-radius: 10px;
+    padding: 8px;
+}
+
+.incomeBG{
+    background-color: var(--greenLight)
+}
+
+.expenseBG{
+    background-color: var(--lightOrange)
 }
 
 .eleBorder {
@@ -58,23 +87,29 @@
     border-radius: 5px;
 }
 
-h4{
+.button:hover {
+    color: var(--blue);
+    border: 2px solid var(--blue);
+    background-color: var(--lightBlue);
+}
+
+h4 {
     text-align: center;
 }
 
-.divider{
+.divider {
     margin: 50px 0px;
     border: 1px solid var(--blue);
 }
 
-.reveal{
+.reveal {
     background-color: var(--lightBlue);
-    border: 3px solid var(--blue);    
+    border: 3px solid var(--blue);
     border-radius: 10px;
 }
 
 .currency-output {
-    color: var(--orange);
+    color: var(--darkOrange);
     font-weight: 500;
     text-align: center;
 }
@@ -86,22 +121,10 @@ h4{
     text-shadow: -1px 0 var(--darkGreen), 0 1px var(--darkGreen), 1px 0 var(--darkGreen), 0 -1px var(--darkGreen);
 }
 
-.iconMain {
-    display: table-cell;
-    vertical-align: middle;
-    text-align: center;
-    border-radius: 10px;
-    width: 50px;
-    height: 50px;
-    background-color: var(--lightGreen);
-}
-
 .closeBtn {
-    display: table-cell;
-    vertical-align: middle;
-    text-align: right;
-    width: 50px;
-    height: 50px;
+    background-color: var(--lightGray2);
+    border-radius: 10px;
+    padding: 3px;
 }
 
 .iconIncome {
@@ -117,19 +140,8 @@ h4{
 }
 
 .footer {
+    padding: 12px;
     background-color: var(--lightGray);
-}
-
-.test {
-    background-color: #DB8A8C;
-}
-
-.test1 {
-    background-color: #8adbc9;
-}
-
-.test2 {
-    background-color: #dbb18a;
 }
 
 @media screen and (max-width: 768px) {
@@ -140,20 +152,20 @@ h4{
         order: 2;
     }
 
-    .paddingLeft{
+    .paddingLeft {
         padding: 3rem;
     }
 
-    .sectionIP{        
+    .sectionIP {
         padding: 0rem 3rem 3rem 3rem;
     }
 
-    h4{
+    h4 {
         font-size: 20px;
         font-weight: 500;
     }
 
-    .header-block{
+    .header-block {
         width: 100%;
         align-items: center;
     }

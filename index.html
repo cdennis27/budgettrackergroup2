@@ -16,13 +16,15 @@
 
   <!-- CSS Style -->
   <link rel="stylesheet" type="text/css" href="./assets/css/style.css" />
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/motion-ui@1.2.3/dist/motion-ui.min.css" />
 </head>
 
 <body>
 
-  <header class="grid-x paddingLeft">
+  <header data-toggler data-animate="slide-in-down slide-out-up" class="grid-x paddingLeft">
     <div class="grid-x header-block">
-      <div class="grid-x">
+      <div class="grid-x ">
         <div class="cell shrink">
           <div class="logo"></div>
         </div>
@@ -34,7 +36,7 @@
             </div>
             <!-- AdviceSlip API -->
             <div class="cell">
-              <div>Tip of the day: <span class="tip-day"></span></div>
+              <div class="tip">Tip of the day: <span class="tip-day"></span></div>
             </div>
           </div>
         </div>
@@ -159,14 +161,17 @@
   </main>
 
   <!-- Footer -->
-  <footer class="footer text-center">
-    <h4>All references for API's used should be here</h4>
+  <footer class="footer columns footer text-center">
+    <h5>All references for API's used should be here</h5>
 
     <!-- AdviceSlip API -->
-    <a href="https://api.adviceslip.com/">AdviceSlip</a> <br>
+    <a href="https://api.adviceslip.com/">AdviceSlip</a>
+
+    <a> | </a>
 
     <!-- NBP Web API -->
     <a href="http://api.nbp.pl/en.html">NBP Web API</a>
+
   </footer>
 
   <!-- Jquery -->
@@ -186,6 +191,7 @@
     integrity="sha256-iu/zLUB+QgISXBLCW/mcDi/rnf4m4uEDO0wauy76x7U=" crossorigin="anonymous"></script>
 
   <!-- JS -->
+  <script src="assets/js/app.js"></script>
   <script src="assets/js/script.js"></script>
   <script src="assets/js/tablescript.js"></script>
 
