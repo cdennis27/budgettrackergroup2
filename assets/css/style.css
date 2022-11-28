@@ -30,15 +30,17 @@
 }
 
 @keyframes float {
-	0% {
-		transform: translatey(0px);
-	}
-	50% {
-		transform: translatey(-20px);
-	}
-	100% {
-		transform: translatey(0px);
-	}
+    0% {
+        transform: translatey(0px);
+    }
+
+    50% {
+        transform: translatey(-20px);
+    }
+
+    100% {
+        transform: translatey(0px);
+    }
 }
 
 .title {
@@ -70,11 +72,11 @@
     padding: 8px;
 }
 
-.incomeBG{
+.incomeBG {
     background-color: var(--greenLight)
 }
 
-.expenseBG{
+.expenseBG {
     background-color: var(--lightOrange)
 }
 
@@ -121,22 +123,19 @@ h4 {
     text-shadow: -1px 0 var(--darkGreen), 0 1px var(--darkGreen), 1px 0 var(--darkGreen), 0 -1px var(--darkGreen);
 }
 
-.closeBtn {
+.deleteBtn {
     background-color: var(--lightGray2);
-    border-radius: 10px;
-    padding: 3px;
+    border-radius: 5px;
+    padding: 5px;
+}
+
+.deleteBtn:hover {
+    background-color: var(--black);
+    color: var(--white)
 }
 
 .iconIncome {
     color: var(--darkGreen);
-}
-
-.iconClose {
-    color: var(--lightGray2);
-}
-
-.iconClose:hover {
-    color: var(--darkGray)
 }
 
 .footer {
@@ -166,7 +165,25 @@ h4 {
     }
 
     .header-block {
-        width: 100%;
+        background-color: var(--lightBlue);
+        border-radius: 10px;
+        padding-bottom: 15px;
+        display: flex;
+        justify-content: center;
         align-items: center;
     }
+    .title{
+        text-align: center;
+    }
+    .tip{
+        text-align: center;
+    }
+
+    .icon {
+        height: 40px;
+        width: 40px;
+        background-color: var(--lightBlue);
+        border-radius: 10px;
+    }
+
 }
