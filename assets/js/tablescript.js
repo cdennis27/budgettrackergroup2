@@ -49,7 +49,7 @@ function expense(event) {
     console.log(table);
     createTable();
     console.log(table);
-    amountEl.value = CAD.textContent;
+    amountEl.value = "";
 }
 
 submitform.addEventListener('submit', expense);
@@ -61,7 +61,7 @@ function createTable() {
 
     for (var i = 0; i < budget.length; i++) {
         var row = table.insertRow(i);
-
+        row.setAttribute("data-index", i);
         // Below option to make whole line using background coded color from income or Expense.
         /*if ((budget[i].category == "payCheck") || (budget[i].category == "bonus") || (budget[i].category == "incOthers")) {
             row.setAttribute("data-index", i);
@@ -139,7 +139,8 @@ function createTable() {
         row.insertCell(1).innerHTML = (budget[i].category);
         row.insertCell(2).innerHTML = (budget[i].dateT);
         row.insertCell(3).innerHTML = ("Amount: CAD$" + amountLine.toFixed(2));
-        row.insertCell(4).innerHTML = ('<button class="deleteBtn closeBtn button" id="button4" type="button" onclick="deleteThis(event)">'
+        row.insertCell(4).innerHTML = ("");
+        row.insertCell(5).innerHTML = ('<button class="deleteBtn closeBtn button" id="button4" type="button" onclick="deleteThis(event)">'
             + '<span> X </span></button>');
     }
 
