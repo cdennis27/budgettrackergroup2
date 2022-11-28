@@ -38,7 +38,7 @@ Nice "Tip of the Day" to bring you something different while working on your fin
 
 ## Link to Application
 
-https://cdennis27.github.io/budgettrackergroup2/?amount=9.99&category=payCheck
+https://cdennis27.github.io/budgettrackergroup2/
 
 ## Link to the GitHub repository
 
@@ -48,6 +48,34 @@ https://github.com/cdennis27/budgettrackergroup2
 
 Thanks to this Bootcamp contributors! I really appreciate the help and instruction!
 Also lots of research on MDN website, youtube videos and StackOverflow was done to understand concepts used in this prototype. 
+
+Referred in this applications the following API's and icon's designs
+
+    AdviceSlip API:
+    
+    https://api.adviceslip.com
+
+    NBP Web API:
+
+    http://api.nbp.pl/en.html
+
+    DayJS API:
+
+    https://day.js.org
+
+    Icons Design from flaticon.com:
+
+    https://www.flaticon.com/free-icons/fuel
+    
+    https://www.flaticon.com/free-icons/bus
+
+    https://www.flaticon.com/free-icons/fire
+     
+    https://www.flaticon.com/free-icons/shopping-bag
+    
+    https://www.flaticon.com/free-icons/education
+
+    https://www.flaticon.com/free-icons/expense
 
 ### License
 
