@@ -7,6 +7,7 @@
 
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="icon" type="image/png" href="./assets/images/logo.png">
 
   <!-- Foundation CSS -->
   <link rel="stylesheet" type="text/css" href="./assets/css/foundation.css">
@@ -15,18 +16,32 @@
 
   <!-- CSS Style -->
   <link rel="stylesheet" type="text/css" href="./assets/css/style.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/motion-ui@1.2.3/dist/motion-ui.min.css" />
 </head>
+<!-- Title -->
+<!-- AdviceSlip API -->
+<!-- Modal -->
 
-<body class="grid-container">
-  <header class="grid-x grid-padding-x test">
+<body>
+  <header data-toggler data-animate="slide-in-down slide-out-up" class="grid-x paddingLeft">
     <div class="grid-x header-block">
-      <div class="logo"></div>
-
-      <!-- Title -->
-      <h3 class="title">BUDGET TRACKER</h3>
-
-      <!-- AdviceSlip API -->
-      <div>Tip of the day: <span class="tip-day"></span></div>
+      <div class="grid-x ">
+        <div class="cell shrink">
+          <div class="logo"></div>
+        </div>
+        <div class="cell small-8">
+          <div class="grid-x">
+            <!-- Title -->
+            <div class="cell">
+              <h3 class="title">BUDGET TRACKER</h3>
+            </div>
+            <!-- AdviceSlip API -->
+            <div class="cell">
+              <div class="tip-day">Tip of the day: <span class="tip-day"></span></div>
+            </div>
+          </div>
+        </div>
+      </div>
 
       <!-- Modal -->
       <div class="small reveal" id="exampleModal1" data-reveal>
@@ -35,30 +50,31 @@
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
+
       <div class="small reveal" id="exampleModal2" data-reveal>
         <p class="lead">Please add amount to convert!</p>
         <button class="close-button" data-close aria-label="Close modal" type="button">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
+
       <div class="small reveal" id="exampleModal3" data-reveal>
         <p class="lead">Please add an amount to your Budget item!</p>
         <button class="close-button" data-close aria-label="Close modal" type="button">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
-
     </div>
   </header>
 
   <main class="grid-x">
-    <div class="large-8 medium-8 cell test1 sectionT">
+    <div class="large-8 medium-8 cell paddingLeft sectionT">
       <!-- Date and Balance Section -->
       <section class="grid-x grid-padding-x ">
         <!-- Day JS -->
-        <p id="current-day" class="large-6 medium-6 current-day"></p>
+        <p id="current-day" class="large-4 medium-4 current-day text-center"></p>
         <!-- Total Balance -->
-        <p id="balance" class="large-6 medium-6 text-right balance">Balance: CAD$ <span id="balance-amount"></span></p>
+        <p id="balance" class="large-8 medium-8 text-right balance">Balance: CAD$ <span id="balance-amount"></span></p>
       </section>
 
       <section>
@@ -67,16 +83,16 @@
       </section>
     </div>
 
-    <div class="large-4 medium-4 cell test2">
+    <div class="large-4 medium-4 cell sectionIP">
       <section class="large-12 medium-12 cell sectionTable">
         <!-- Input Section -->
         <div id="card input-block">
 
-          <h2 id="input-title">Input your income or expense:</h2>
+          <h4 id="input-title">Input your income or expense</h4>
           <form id="form">
             <div>
               <label for="amount">Amount</label>
-              <input type="number" name="amount" id="amount" min="0" max="999999999" step="0.01">
+              <input type="number" class="eleBorder" name="amount" id="amount" min="0" max="999999999" step="0.01">
             </div>
             <div>
               <label for="category">Category</label>
@@ -96,26 +112,28 @@
                 <option value="expOthers">Expense - Other Bills</option>
               </select>
             </div>
-            <div class="table">
+            <div class="btn">
 
-              <input type="submit" id="button" value="Generate a table" />
+              <button class="button expanded" type="submit" id="button" value="Generate a table">Generate a
+                table</button>
             </div>
           </form>
-          <!-- <button id="submit" onclick="submit()">Submit</button> -->
-
         </div>
       </section>
+
+      <hr class="divider">
 
       <section class="large-12 medium-12 cell sectionCC">
         <!-- Currency Section -->
         <div id="card input-currency-block">
-          <h2 id="currency-title">Currency rates</h2>
-          
+          <h4 id="currency-title">Currency rates</h4>
+
           <form>
             <div>
               <label for="amount-currency">Amount in <span style="text-transform: uppercase;" id="exchangeRate">
                 </span>$</label>
-              <input type="number" name="amount-currency" id="amountcurr" min="0" max="999999999" step="0.01" required>
+              <input type="number" class="eleBorder" name="amount-currency" id="amountcurr" min="0" max="999999999"
+                step="0.01" required>
             </div>
             <div id="currency" required>
               Currency:
@@ -127,8 +145,8 @@
               <label for="gbp">GBP</label>
             </div>
           </form>
-          
-          <button id="convert" onclick="convert(event)">Convert</button>
+
+          <button class="btn2 button expanded" id="convert" onclick="convert(event)">Convert</button>
 
           <p class="currency-output">Exchange rate is 1 CAD$ to: <span id="currency-output"></span> <span
               style="text-transform: uppercase;" id="exchangeRate2"></span>$.</p>
@@ -141,21 +159,35 @@
   </main>
 
   <!-- Footer -->
-  <footer class="footer">
-    <h4>All references for API's used should be here</h4>
+  <footer class="footer columns footer text-center">
+    <h5>Refered in this applications the following API's and icon's designs</h5>
 
     <!-- AdviceSlip API -->
-    <a href="https://api.adviceslip.com/">AdviceSlip</a> <br>
+    <a href="https://api.adviceslip.com/">AdviceSlip</a> |
 
     <!-- NBP Web API -->
-    <a href="http://api.nbp.pl/en.html">NBP Web API</a>
+    <a href="http://api.nbp.pl/en.html">NBP Web API</a> <br>
+
+    <!-- Icons Design -->
+    <a href="https://www.flaticon.com/free-icons/fuel" title="fuel icons">Fuel icons created by Pixel perfect -
+      Flaticon</a><br>
+    <a href="https://www.flaticon.com/free-icons/bus" title="bus icons">Bus icons created by mynamepong - Flaticon</a><br>
+    <a href="https://www.flaticon.com/free-icons/fire" title="fire icons">Fire icons created by Smashicons -
+      Flaticon</a><br>
+    <a href="https://www.flaticon.com/free-icons/shopping-bag" title="shopping bag icons">Shopping bag icons created by
+      iconixar - Flaticon</a><br>
+    <a href="https://www.flaticon.com/free-icons/education" title="education icons">Education icons created by Freepik -
+      Flaticon</a><br>
+    <a href="https://www.flaticon.com/free-icons/expense" title="expense icons">Expense icons created by surang -
+      Flaticon</a><br>
+
   </footer>
 
   <!-- Jquery -->
   <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 
   <!-- Foundation JS -->
-  <script src="/assets/js/vendor/jquery.js"></script>
+  <script src="./assets/js/vendor/jquery.js"></script>
   <script src="./assets/js/vendor/what-input.js"></script>
   <script src="./assets/js/vendor/foundation.js"></script>
   <script src="./assets/js/vendor/foundation.min.js"></script>

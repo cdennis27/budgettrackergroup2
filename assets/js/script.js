@@ -65,20 +65,28 @@ var exchangeRate = "usd";
 
 async function initializeExchange() {
   showExchangeCad();
+  //debugger;
   if (baseRate != undefined) {
     await sleep(2000);
     getRate();
   } else {
     showExchangeCad();
+    //debugger;
     await sleep(2000);
     getRate();
     //USD.textContent = "Choose your currency above.";
     USD.textContent = (finalRate.toFixed(4) + exchangeRate);
     console.log("Rate is in:" + exchangeRate);
     exH.textContent = exchangeRate;
-    return;
+    
   }
+  //debugger;
   console.log("Rate is in:" + exchangeRate);
+  showUsd();
+  //debugger;
+    USD.textContent = ("Select a Exchange Rate above.");
+    exH.textContent = exchangeRate;
+  
 }
 
 function getRate() {
@@ -162,7 +170,9 @@ function showExchangeCad() {
     .then(function (response) {
       console.log(response);
       if (response.status === 200) {
-        return showCad();
+        showCad();
+        showUsd();
+        return;
       } else if (response.status !== 200) {
         x--;
         console.log('x:' + x);
@@ -216,6 +226,12 @@ async function convert(event) {
   await sleep(2000);
   console.log("finalRate is:" + finalRate);
   amt = amountCurrency;
+
+  if (amountCurrency <= 0) {
+    $('#exampleModal2').foundation('open');
+    CAD.textContent = "Sorry, please try again!";
+    return;
+  }
   
   if (finalRate == 1) {
     $('#exampleModal2').foundation('open');

@@ -2,7 +2,8 @@
     --white: #ffffff;
     --black: #000000;
 
-    --darkOrange: #612f23;
+    --darkOrange: #D86700;
+    --lightOrange: #ffd8b4;
 
     --lightGreen: #e1f39a;
     --darkGreen: #6F7B47;
@@ -15,15 +16,11 @@
     --blue: #3C8CBA;
     --orange: #DB8A8C;
 
-    /* --lightBlue: #E3ECEE;
-    --green: #CCD5AE;
-    --blue: #0590DF;
-    --orange: #E76F51; */
-
 }
 
 * {
     font-style: 'Roboto', sans-serif;
+
 }
 
 .logo {
@@ -31,22 +28,101 @@
     height: 100px;
     background-image: url(../images/logo.png);
     background-size: cover;
+    animation: float 10s ease-in-out infinite;
 }
 
-.tip-day {
+@keyframes float {
+    0% {
+        transform: translatey(0px);
+    }
+
+    50% {
+        transform: translatey(-20px);
+    }
+
+    100% {
+        transform: translatey(0px);
+    }
+}
+
+.title {
+    font-weight: 700;
+}
+
+.tip {
     font-size: 20px;
     font-weight: 400;
 }
 
+.paddingLeft {
+    padding: 2rem 3rem 2rem 10rem;
+}
+
+.sectionT {
+    background-color: var(--lightBlue);
+}
+
+.sectionIP {
+    padding: 2rem 10rem 2rem 3rem;
+}
+
 .icon {
     height: 3rem;
-    min-width: 20px;
+    min-width: 40px;
+    background-color: var(--lightBlue);
+    border-radius: 10px;
+    padding: 8px;
+}
+
+.incomeBG {
+    background-color: var(--greenLight);
+    border: 2px, solid, white;
+}
+
+.expenseBG {
+    background-color: var(--lightOrange);
+    border: 2px, solid, white;
+
+}
+
+.eleBorder {
+    border: 1px solid var(--blue);
+    border-radius: 5px;
+}
+
+.button {
+    border-radius: 5px;
+}
+
+.button:hover {
+    color: var(--blue);
+    border: 2px solid var(--blue);
+    background-color: var(--lightBlue);
+}
+
+h4 {
+    text-align: center;
+}
+
+.divider {
+    margin: 50px 0px;
+    border: 1px solid var(--blue);
+}
+
+#currency {
+    font-size: 85%;
+}
+
+.reveal {
+    background-color: var(--lightBlue);
+    border: 3px solid var(--blue);
+    border-radius: 10px;
+    text-align: center;
 }
 
 .currency-output {
-    color: var(--orange);
+    color: var(--darkOrange);
     font-weight: 500;
-    background-color: var(--lightBlue);
 }
 
 .balance {
@@ -56,22 +132,10 @@
     text-shadow: -1px 0 var(--darkGreen), 0 1px var(--darkGreen), 1px 0 var(--darkGreen), 0 -1px var(--darkGreen);
 }
 
-.iconMain {
-    display: table-cell;
-    vertical-align: middle;
-    text-align: center;
-    border-radius: 10px;
-    width: 50px;
-    height: 50px;
-    background-color: var(--lightGreen);
-}
-
 .closeBtn {
-    display: table-cell;
-    vertical-align: middle;
-    text-align: right;
-    width: 50px;
-    height: 50px;
+    background-color: var(--lightGray2);
+    border-radius: 10px;
+    padding: 3px;
 }
 
 .iconIncome {
@@ -87,27 +151,102 @@
 }
 
 .footer {
+    padding: 12px;
     background-color: var(--lightGray);
 }
 
-.test {
-    background-color: #DB8A8C;
-}
+@media screen and (max-width: 920px) {
 
-.test1 {
-    background-color: #8adbc9;
-}
-
-.test2 {
-    background-color: #dbb18a;
-}
-
-@media screen and (max-width: 768px) {
     /* Use flex-direction to stack the navbar, sidebar, and body */
+    * {
+        box-sizing: content-box;
+    }
 
     /* Make the sidebar stack below the body */
     .sectionT {
         order: 2;
+    }
+
+    .paddingLeft {
+        padding: 0rem;
+
+    }
+
+    .sectionIP {
+        padding: 0rem 3rem 3rem 3rem;
+    }
+
+    h4 {
+        font-size: 20px;
+        font-weight: 500;
+    }
+
+    .logo {
+        margin: 0;
+        position: relative;
+        left: 75%;
+    }
+
+    .header-block {
+        align-content: center;
+        padding: 20px;
+    }
+
+    .current-day,
+    .balance {
+        display: flex;
+        padding-left: 20px;
+
+    }
+
+    .balance {
+        font-size: 25px;
+    }
+
+    .btn {
+        margin: 0;
+        position: relative;
+        display: flex;
+        align-self: center;
+        left: 0vw;
+        width: 100%;
+    }
+
+    #convert {
+        margin: 0;
+        position: relative;
+        display: block;
+        align-self: center;
+        left: 0vw;
+        width: 92%;
+    }
+
+    .table {
+        margin: 0;
+        position: relative;
+        left: 4vw;
+        width: 100%;
+    }
+
+    .footer {
+        position: relative;
+        left: 8vw;
+        min-width: 100vw;
+    }
+
+
+    html {
+        margin: 0;
+        width: 100%;
+        align-items: center;
+        padding-top: 10px;
+        padding-bottom: 10px;
+
+    }
+
+    #exampleModal1, #exampleModal2, #exampleModal3 {
+        width: 350px;
+        padding-top: 40px;
     }
 
 }
