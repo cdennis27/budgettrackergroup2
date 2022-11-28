@@ -19,6 +19,7 @@ const shopping = document.querySelector("shopping");
 const education = document.querySelector("education");
 const expOthers = document.querySelector("expOthers");
 var budget = []
+let amountLine = 0;
 
 if (localStorage.getItem("budget")) {
     budget = JSON.parse(localStorage.getItem("budget"))
@@ -60,7 +61,18 @@ function createTable() {
 
     for (var i = 0; i < budget.length; i++) {
         var row = table.insertRow(i);
-        row.setAttribute("data-index", i);
+
+        // Below option to make whole line using background coded color from income or Expense.
+        /*if ((budget[i].category == "payCheck") || (budget[i].category == "bonus") || (budget[i].category == "incOthers")) {
+            row.setAttribute("data-index", i);
+            row.setAttribute("class", "incomeBG");
+        } 
+        
+        if ((budget[i].category != "payCheck") && (budget[i].category != "bonus") && (budget[i].category != "incOthers")) {
+            row.setAttribute("data-index", i);
+            row.setAttribute("class", "expenseBG");
+        }*/
+        
         var indexi = ('"' + i + '"');
         console.log(indexi);
         var button3 = document.createElement("button");
@@ -68,65 +80,66 @@ function createTable() {
         var currentAmount = (budget[i].amount);
 
         if (budget[i].category == "payCheck") {
-            row.insertCell(0).innerHTML = ('<img class="icon" src="./assets/images/paycheckicon.png" alt="icon pay check">')
+            row.insertCell(0).innerHTML = ('<img class="icon incomeBG" src="./assets/images/icons/i-payCheck.png" alt="icon pay check">')
             balance = Number(balance) + Number(currentAmount);
         }
         if (budget[i].category == "bonus") {
-            row.insertCell(0).innerHTML = ('<img class="icon" src="./assets/images/paycheckicon.png" alt="icon pay check">')
+            row.insertCell(0).innerHTML = ('<img class="icon incomeBG" src="./assets/images/icons/i-bonus.png" alt="icon income bonus">')
             balance = Number(balance) + Number(currentAmount);
         }
         if (budget[i].category == "incOthers") {
-            row.insertCell(0).innerHTML = ('<img class="icon" src="./assets/images/paycheckicon.png" alt="icon pay check">')
+            row.insertCell(0).innerHTML = ('<img class="icon incomeBG" src="./assets/images/icons/i-others.png" alt="icon income others">')
             balance = Number(balance) + Number(currentAmount);
         }
         if (budget[i].category == "food") {
-            row.insertCell(0).innerHTML = ('<img class="icon" src="./assets/images/paycheckicon.png" alt="icon pay check">')
+            row.insertCell(0).innerHTML = ('<img class="icon expenseBG" src="./assets/images/icons/i-food.png" alt="icon food">')
             balance = Number(balance) - Number(currentAmount);
         }
         if (budget[i].category == "groceries") {
-            row.insertCell(0).innerHTML = ('<img class="icon" src="./assets/images/paycheckicon.png" alt="icon pay check">')
+            row.insertCell(0).innerHTML = ('<img class="icon expenseBG" src="./assets/images/icons/i-groceries.png" alt="icon groceries">')
             balance = Number(balance) - Number(currentAmount);
         }
         if (budget[i].category == "entertainment") {
-            row.insertCell(0).innerHTML = ('<img class="icon" src="./assets/images/paycheckicon.png" alt="icon pay check">')
+            row.insertCell(0).innerHTML = ('<img class="icon expenseBG" src="./assets/images/icons/i-entertainment.png" alt="icon entertainment">')
             balance = Number(balance) - Number(currentAmount);
         }
         if (budget[i].category == "rent") {
-            row.insertCell(0).innerHTML = ('<img class="icon" src="./assets/images/paycheckicon.png" alt="icon pay check">')
+            row.insertCell(0).innerHTML = ('<img class="icon expenseBG" src="./assets/images/icons/i-rent.png" alt="icon rent">')
             balance = Number(balance) - Number(currentAmount);
         }
         if (budget[i].category == "fuel") {
-            row.insertCell(0).innerHTML = ('<img class="icon" src="./assets/images/paycheckicon.png" alt="icon pay check">')
+            row.insertCell(0).innerHTML = ('<img class="icon expenseBG" src="./assets/images/icons/gas-pump.png" alt="icon fuel">')
             balance = Number(balance) - Number(currentAmount);
         }
         if (budget[i].category == "transport") {
-            row.insertCell(0).innerHTML = ('<img class="icon" src="./assets/images/paycheckicon.png" alt="icon pay check">')
+            row.insertCell(0).innerHTML = ('<img class="icon expenseBG" src="./assets/images/icons/bus.png" alt="icon transport">')
             balance = Number(balance) - Number(currentAmount);
         }
         if (budget[i].category == "utilities") {
-            row.insertCell(0).innerHTML = ('<img class="icon" src="./assets/images/paycheckicon.png" alt="icon pay check">')
+            row.insertCell(0).innerHTML = ('<img class="icon expenseBG" src="./assets/images/icons/utilities.png" alt="icon utilities">')
             balance = Number(balance) - Number(currentAmount);
         }
         if (budget[i].category == "shopping") {
-            row.insertCell(0).innerHTML = ('<img class="icon" src="./assets/images/paycheckicon.png" alt="icon pay check">')
+            row.insertCell(0).innerHTML = ('<img class="icon expenseBG" src="./assets/images/icons/online-shopping.png" alt="icon shopping">')
             balance = Number(balance) - Number(currentAmount);
         }
         if (budget[i].category == "education") {
-            row.insertCell(0).innerHTML = ('<img class="icon" src="./assets/images/paycheckicon.png" alt="icon pay check">')
+            row.insertCell(0).innerHTML = ('<img class="icon expenseBG" src="./assets/images/icons/mortarboard.png" alt="icon education">')
             balance = Number(balance) - Number(currentAmount);
         }
         if (budget[i].category == "expOthers") {
-            row.insertCell(0).innerHTML = ('<img class="icon" src="./assets/images/paycheckicon.png" alt="icon pay check">')
+            row.insertCell(0).innerHTML = ('<img class="icon expenseBG" src="./assets/images/icons/expenses.png" alt="icon expense others">')
             balance = Number(balance) - Number(currentAmount);
         }
 
+        let amountLine = Number(budget[i].amount);
+        //debugger;
         console.log("amount=" + (budget[i].amount));
         console.log("balance=" + balance);
         row.insertCell(1).innerHTML = (budget[i].category);
         row.insertCell(2).innerHTML = (budget[i].dateT);
-        row.insertCell(3).innerHTML = ("Amount: CAD$");
-        row.insertCell(4).innerHTML = (budget[i].amount);
-        row.insertCell(5).innerHTML = ('<button class="deleteBtn" id="button4" type="button" onclick="deleteThis(event)">'
+        row.insertCell(3).innerHTML = ("Amount: CAD$" + amountLine.toFixed(2));
+        row.insertCell(4).innerHTML = ('<button class="deleteBtn closeBtn button" id="button4" type="button" onclick="deleteThis(event)">'
             + '<span> X </span></button>');
     }
 
