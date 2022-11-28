@@ -1,6 +1,6 @@
+//Variables below
 const table2 = document.querySelector("#table")
 var table = document.createElement("table");
-//total = document.getElementById("balance")
 const submitform = document.getElementById("form");
 const payCheck = document.querySelector("paycheck");
 const bonus = document.querySelector("bonus");
@@ -21,11 +21,13 @@ const expOthers = document.querySelector("expOthers");
 var budget = []
 let amountLine = 0;
 
+//Get local stored data
 if (localStorage.getItem("budget")) {
     budget = JSON.parse(localStorage.getItem("budget"))
     var dateT = currentDay;
-
 }
+
+//Function to create local data based on User Input
 function expense(event) {
     event.preventDefault()
 
@@ -54,6 +56,8 @@ function expense(event) {
 
 submitform.addEventListener('submit', expense);
 
+
+//Update screen with information from Local storage
 function createTable() {
 
     var headers = ["Category", "Date", "Amount"];
@@ -133,7 +137,6 @@ function createTable() {
         }
 
         let amountLine = Number(budget[i].amount);
-        //debugger;
         console.log("amount=" + (budget[i].amount));
         console.log("balance=" + balance);
         row.insertCell(1).innerHTML = (budget[i].category);
@@ -158,6 +161,7 @@ function createTable() {
 
 }
 
+//Remove one item when delete button is clicked
 function deleteThis(event) {
 
     var btnClicked = $(event.currentTarget).parent('td').parent('tr').attr('data-index');

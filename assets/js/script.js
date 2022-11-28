@@ -63,34 +63,33 @@ var usdExchangeLink = ("https://api.nbp.pl/api/exchangerates/rates/c/" + "usd" +
 var cadExchangeLink = ("https://api.nbp.pl/api/exchangerates/rates/c/" + "cad" + "/" + yesterday + "/?format=json");
 var exchangeRate = "usd";
 
+//Prepare application for functions needed and update screen
 async function initializeExchange() {
   showExchangeCad();
-  //debugger;
+
   if (baseRate != undefined) {
     await sleep(2000);
     getRate();
   } else {
     showExchangeCad();
-    //debugger;
     await sleep(2000);
     getRate();
-    //USD.textContent = "Choose your currency above.";
     USD.textContent = (finalRate.toFixed(4) + exchangeRate);
     console.log("Rate is in:" + exchangeRate);
     exH.textContent = exchangeRate;
-    
+
   }
-  //debugger;
+
   console.log("Rate is in:" + exchangeRate);
   showUsd();
-  //debugger;
-    USD.textContent = ("Select a Exchange Rate above.");
-    exH.textContent = exchangeRate;
-  
+  USD.textContent = ("Select a Exchange Rate above.");
+  exH.textContent = exchangeRate;
+
 }
 
+//Upload exchange rate and amounts from common exchange to desired exchange
 function getRate() {
-  
+
   if (checkBoxUsd.checked == true) {
     exchangeRate = "usd";
     showExchange();
@@ -162,6 +161,7 @@ function showExchange() {
   console.log(exchangeRate);
 }
 
+//upload exchange rate from Cad to common exchange
 function showExchangeCad() {
   cadExchangeLink = ("https://api.nbp.pl/api/exchangerates/rates/c/cad/" + yesterday + "/?format=json");
   console.log(cadExchangeLink);
@@ -218,6 +218,7 @@ function sleep(ms) {
   return new Promise(resolve => setTimeout(resolve, ms));
 }
 
+//Convert as per user request
 async function convert(event) {
   event.preventDefault();
 
@@ -232,7 +233,7 @@ async function convert(event) {
     CAD.textContent = "Sorry, please try again!";
     return;
   }
-  
+
   if (finalRate == 1) {
     $('#exampleModal2').foundation('open');
     CAD.textContent = "Sorry, please try again!";
@@ -246,7 +247,7 @@ async function convert(event) {
     CAD.textContent = "Sorry, please try again!";
     return;
   }
-  
+
   console.log("amountCurrency:" + amt);
   amountEl.value = CAD.textContent;
   exH2.textContent = (" " + exchangeRate);
