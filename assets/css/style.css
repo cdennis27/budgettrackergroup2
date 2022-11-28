@@ -58,6 +58,10 @@
     padding: 2rem 3rem 2rem 10rem;
 }
 
+.tableCenter {
+    padding: 2rem 3rem 2rem 10rem;
+}
+
 .sectionT {
     background-color: var(--lightBlue);
 }
@@ -172,6 +176,8 @@ h4 {
 
     }
 
+    
+
     .sectionIP {
         padding: 0rem 3rem 3rem 3rem;
     }
@@ -184,13 +190,15 @@ h4 {
     .logo {
         margin: 0;
         position: relative;
-        left: 75%;
+        left: 90%;
     }
 
     .header-block {
         align-content: center;
         padding: 20px;
     }
+
+    
 
     .current-day,
     .balance {
@@ -224,7 +232,7 @@ h4 {
     .table {
         margin: 0;
         position: relative;
-        left: 4vw;
+        left: 0vw;
         width: 100%;
     }
 
@@ -232,6 +240,7 @@ h4 {
         position: relative;
         left: 8vw;
         min-width: 100vw;
+        margin-top: 20px;
     }
 
 
@@ -241,7 +250,7 @@ h4 {
         align-items: center;
         padding-top: 10px;
         padding-bottom: 10px;
-
+        
     }
 
     #exampleModal1, #exampleModal2, #exampleModal3 {
@@ -249,4 +258,12 @@ h4 {
         padding-top: 40px;
     }
 
+    .tableCenter {
+        width: 100%;
+        margin-left: -100px;
+    }
+
+    
+
+    
 }

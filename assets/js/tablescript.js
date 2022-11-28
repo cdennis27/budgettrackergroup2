@@ -76,7 +76,7 @@ function createTable() {
             row.setAttribute("data-index", i);
             row.setAttribute("class", "expenseBG");
         }*/
-        
+
         var indexi = ('"' + i + '"');
         console.log(indexi);
         var button3 = document.createElement("button");
