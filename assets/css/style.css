@@ -161,6 +161,24 @@ h4 {
 
 @media screen and (max-width: 920px) {
 
+    * {
+        box-sizing: content-box;
+    }
+
+    /* Make the sidebar stack below the body */
+.sectionT {
+    order: 2;
+}
+
+.grid-x>.medium-4 {
+    width: 85%;
+    
+}
+
+}
+
+@media screen and (max-width: 626px) {
+
     /* Use flex-direction to stack the navbar, sidebar, and body */
     * {
         box-sizing: content-box;
@@ -173,6 +191,7 @@ h4 {
 
     .paddingLeft {
         padding: 0rem;
+        width: 100%;
 
     }
 
@@ -190,11 +209,21 @@ h4 {
     .logo {
         margin: 0;
         position: relative;
-        left: 90%;
+        align-self: center;
+        top: 20px;
+        left: 5;
+    }
+
+    .title {
+        margin: 0;
+        position: relative;
+        top: 130px;
+        left: -120px;
     }
 
     .header-block {
-        align-content: center;
+        
+        height: 200px;
         padding: 20px;
     }
 
